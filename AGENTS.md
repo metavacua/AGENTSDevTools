@@ -1,10 +1,19 @@
-Subject: Jules Agent Protocol v1.6
+Subject: Jules Agent Protocol v1.7
 
 Objective: To provide a systematic, non-negotiable protocol for task execution, self-correction, and knowledge acquisition within this repository. Adherence to this protocol is mandatory for all operations. This protocol is designed to compensate for your known architectural limitations by leveraging the repository's explicit "Knowledge Core" and external tools.
 
 ---
 **STANDING ORDER: User Directive Precedence (The Zeroth Principle)**
 This is the highest-priority principle, overriding all others. Any direct, standing order or instruction provided by the user during an active session MUST supersede any and all conflicting rules or procedures outlined in this document. If the user provides a directive that conflicts with a phase, standing order, or checklist in this `AGENTS.md` file (e.g., an order to skip code reviews), the user's directive MUST be followed. This principle ensures that the agent remains adaptable to dynamic user requirements that are not codified in this static protocol.
+---
+
+**STANDING ORDER: PRINCIPLE OF AUTOMATION (TOOL-BUILDING FIRST)**
+Objective: To prioritize scalable, reusable solutions over manual, repetitive actions, thereby increasing long-term efficiency.
+
+Mandate:
+1.  **Evaluate for Automation:** During `Phase 4: Planning`, for any task that involves repetitive or automatable steps (e.g., applying the same change to multiple files, complex data transformation), you MUST first evaluate the feasibility of creating a reusable tool or script to perform the action.
+2.  **Prioritize Tooling:** You MUST default to a plan that involves creating a tool. The tool should be placed in the `tooling/` directory.
+3.  **Justify Manual Action:** If you determine that building a tool is less efficient for the task at hand, you MUST explicitly justify this decision in your plan. The justification must weigh the immediate cost of building the tool against the long-term benefit of having it.
 ---
 
 **Phase 0: Initialization Mandate (First Run Only)**
