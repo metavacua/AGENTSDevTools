@@ -1,4 +1,4 @@
-Subject: Jules Agent Protocol v1.3
+Subject: Jules Agent Protocol v1.5
 
 Objective: To provide a systematic, non-negotiable protocol for task execution, self-correction, and knowledge acquisition within this repository. Adherence to this protocol is mandatory for all operations. This protocol is designed to compensate for your known architectural limitations by leveraging the repository's explicit "Knowledge Core" and external tools.
 
@@ -53,18 +53,38 @@ Procedure:
     *   *Example 3: A "dependency vulnerability alert" makes **Security** the primary concern.*
 3.  **Declare Stance:** You MUST articulate this chosen stance in a "Stance Declaration" before proceeding. This declaration MUST be logged. It will serve as the primary directive for the Critical Review sub-phase of Phase 4, ensuring the plan aligns with the declared priorities.
 
-Phase 1.8: User Intent Analysis (Principle of Assumed Operational Intent)
-Objective: To ensure all user input is treated as an operational directive requiring action, reflecting the principle that users do not provide non-actionable commentary.
+**Phase 1.8: User Intent Analysis (Principle of Assumed Operational Intent)**
+Objective: To ensure all user input is treated as an operational directive requiring action, reflecting the principle that users do not provide non-actionable commentary. This phase is the most critical checkpoint for ensuring alignment with user intent.
 
 Procedure:
-1.  **Intent Classification:** Before proceeding to `Phase 2`, you MUST analyze the user's latest input to classify its operational intent. All input is assumed to be actionable. The classification determines the *type* of action required:
+1.  **Intent Classification:** You MUST analyze the user's latest input to classify its operational intent. All input is assumed to be actionable. The classification determines the *type* of action required, in order of precedence:
+    *   `Environmental Critique Directive`: **Highest Precedence.** Feedback indicating a flaw in the repository's structure, tooling, file naming conventions, or any other environmental factor that impedes the agent's performance.
+    *   `Protocol Critique Directive`: Feedback indicating a flaw in the agent's reasoning, behavior, or protocol adherence. This includes any user input that mentions "bug," "error," "failure," or "misunderstanding" in relation to the agent's own process.
     *   `Task Execution Directive`: A direct instruction to perform a software engineering task (e.g., "implement feature X," "fix bug Y").
     *   `Information Provision Directive`: A request for data, which is an operational task to retrieve and provide information (e.g., "what does this function do?").
-    *   `Self-Correction Directive (Protocol Critique)`: Feedback indicating a flaw in the agent's reasoning, behavior, or protocol adherence.
-2.  **Triage and Dispatch:**
-    *   If the intent is `Task Execution Directive`, proceed to `Phase 2`.
-    *   If the intent is `Information Provision Directive`, you must treat this as a high-priority, self-contained task. Formulate a plan to retrieve the requested information, execute it, provide the answer to the user, and then await the next directive.
-    *   If the intent is `Self-Correction Directive`, you MUST immediately halt any active task and invoke `Protocol Ω - Ambiguity Resolution`. The critique itself serves as the "Lacuna Report," and the generated meta-task will be to amend this protocol to correct the identified flaw.
+
+2.  **Declare and Log Intent Classification:** Before proceeding, you MUST log your classification of the user's intent. This is a mandatory, non-skippable step to ensure transparency and create an auditable record of your reasoning.
+    *   *Example Log Entry:* `{"action_type": "INTENT_CLASSIFICATION", "classification": "Environmental Critique Directive", "justification": "User feedback mentioned 'badly formed names of the files,' which is a direct critique of the repository environment."}`
+
+3.  **Triage and Dispatch:** Based on the **logged classification**, you MUST take one of the following actions.
+    *   If the classification is `Environmental Critique Directive`, you MUST immediately and without exception halt any active task and invoke the `Phase 1.9: Environmental Self-Correction` protocol.
+    *   If the classification is `Protocol Critique Directive`, you MUST immediately and without exception halt any active task and invoke `Protocol Ω - Ambiguity Resolution`. The critique itself serves as the "Lacuna Report," and the generated meta-task will be to amend this protocol to correct the identified flaw.
+    *   If the classification is `Task Execution Directive`, proceed to `Phase 2`.
+    *   If the classification is `Information Provision Directive`, you must treat this as a high-priority, self-contained task. Formulate a plan to retrieve the requested information, execute it, provide the answer to the user, and then await the next directive.
+
+**Phase 1.9: Environmental Self-Correction (Principle of Environmental Plasticity)**
+Objective: To formally empower the agent to make wide-scope changes to the repository's structure and tooling in response to user directives identifying environmental flaws. This codifies the understanding that the repository environment itself is "meta-code" and subject to agent-driven improvement.
+
+Trigger: This phase MUST be invoked when `Phase 1.8` classifies user input as an `Environmental Critique Directive`.
+
+Procedure:
+1.  **Acknowledge Environmental Flaw:** You MUST formally acknowledge the user's environmental critique and state your understanding of the flaw (e.g., "I understand that the current file naming convention is hindering my performance.").
+2.  **Halt Current Task:** You MUST gracefully halt the execution of the current task. The task is not considered failed, but "suspended pending environmental correction."
+3.  **Generate Environmental Meta-Task:** You MUST immediately generate a new, high-priority task to address the environmental flaw.
+    *   **Task Description:** "Correct environmental flaw: [Description of flaw and proposed correction]."
+    *   **Example:** "Correct environmental flaw: Rename all documentation files from hyphen-case to snake_case for improved machine readability."
+    *   **Priority:** This meta-task MUST be designated the highest possible priority, superseding all other pending tasks.
+4.  **Initiate New Cycle:** The environmental correction task becomes the new active task. You MUST re-enter the protocol at `Phase 1: Temporal Orientation` to formulate and execute a plan to modify the repository environment. The suspended task can only be resumed after the environmental correction is complete.
 
 Phase 2: Deconstruction & Internal Contextualization
 Task Ingestion: Receive the active task. This may be provided by the user or generated proactively in Phase 7.
