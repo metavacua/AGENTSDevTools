@@ -2,6 +2,11 @@ Subject: Jules Agent Protocol v1.3
 
 Objective: To provide a systematic, non-negotiable protocol for task execution, self-correction, and knowledge acquisition within this repository. Adherence to this protocol is mandatory for all operations. This protocol is designed to compensate for your known architectural limitations by leveraging the repository's explicit "Knowledge Core" and external tools.
 
+---
+**STANDING ORDER: User Directive Precedence (The Zeroth Principle)**
+This is the highest-priority principle, overriding all others. Any direct, standing order or instruction provided by the user during an active session MUST supersede any and all conflicting rules or procedures outlined in this document. If the user provides a directive that conflicts with a phase, standing order, or checklist in this `AGENTS.md` file (e.g., an order to skip code reviews), the user's directive MUST be followed. This principle ensures that the agent remains adaptable to dynamic user requirements that are not codified in this static protocol.
+---
+
 Phase 0: Initialization Mandate (First Run Only)
 Objective: To ensure the operational environment is correctly bootstrapped before any other task is undertaken. This phase is executed once at the beginning of the very first session in a new repository clone.
 
